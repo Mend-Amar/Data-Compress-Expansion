@@ -190,7 +190,7 @@ long decode(FILE *fp, int size, int dic_bits, int code_bits)
 		if(flg){
 			pos = fgetBits(fp,dic_bits);
 			len = fgetBits(fp,code_bits) + 3;
-			printf("[%d %d]",pos,len);
+//			printf("[%d %d]",pos,len);
 			d_bgn = (sdic.dic_bgn + pos) % sdic.buf_size;
 			for(i = 0; i < len; i++){
 				c = sdic.buffer[d_bgn];
@@ -226,7 +226,7 @@ int main(int ac, char *av[])
 	size = getLong(fp);
 	dic = getLong(fp);
 	code = getLong(fp);
-	printf("%d %d %d\n",size,dic,code);
+//	printf("%d %d %d\n",size,dic,code);
 
 	decode(fp,size,dic,code);
 	return 0;
